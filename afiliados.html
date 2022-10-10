@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citas</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="estilos.css">
+
+  <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready(function () {
+      $('#tablaRegistros').DataTable({
+        "language":{
+          "url":"https://cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json"
+        }
+      });
+  });
+    
+// $(document).ready(function () {
+//   var table = $('#tablaRegistros').DataTable();
+
+//   $('#tbody').on('click', 'tr', function () {
+//       var data = table.row(this).data();
+//       alert('You clicked on ' + data[0] + "'s row");
+//   });
+// });
+</script>
+
+</head>
+
+<body>
+  <nav id="menu" class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="home.html">Inicio</a>
+          <a class="nav-link active" href="afiliados.html">Afiliados</a>
+          <a class="nav-link" href="empleadores.html">Empleadores</a>
+          <a class="nav-link" href="independientes.html">Independientes</a>
+          <a class="nav-link" href="usuarios.html">Usuarios</a>
+          <a class="nav-link" href="index.html">Cerrar Sesión</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    
+
+    <h1>Citas</h1>
+    <br />
+    <div id="divFormulario" class="row align-self-center"> <!-- Div Form-->      
+    <form id="formularioCitas">      
+      
+        <div class="row align-items-center">
+          <!-- TIPO IDENTIFICACION -->        
+          <div class="col">
+            <label for="tipoid" class="form-label">Tipo de identificación</label>
+          </div>
+          <div class="col">
+            <select class="form-select" name="" id="tipoid" required>
+              <option value="">Seleccione...</option>
+              <option value="Cédula de ciudadanía">Cédula de ciudadanía</option>
+              <option value="Cédula de extranjería">Cédula de extranjería</option>
+              <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+              <option value="Registro civil">Registro civil</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>                  
+        </div>
+
+        <div class="row align-items-center">
+          <!-- NUMERO -->
+          <div class="col">
+            <label for="numero" class="form-label">Número</label>
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" id="numero" required>
+          </div>          
+        </div>
+
+        <div class="row align-items-center">
+          <!-- PACIENTE -->
+          <div class="col">
+            <label for="paciente" class="form-label">Paciente</label>
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" id="paciente" required>
+          </div>          
+        </div>
+
+         <!-- FECHA -->
+         <div class="row">
+          <div class="col">
+              <label for="fecha" class="form-label">Fecha</label>
+            </div>
+            <div class="col">
+              <input type="date" class="form-control" id="fecha" required>
+            </div> 
+          </div>
+
+           <!-- HORA -->
+         <div class="row">
+          <div class="col">
+              <label for="hora" class="form-label">Hora</label>
+            </div>
+            <div class="col">
+              <input type="time" class="form-control" id="hora" required>
+            </div> 
+          </div>
+
+        <div class="row align-items-center">
+          <!-- ESPECIALIDAD -->
+          <div class="col">
+            <label for="especialidad" class="form-label">Especialidad</label>
+          </div>
+          <div class="col">
+            <select class="form-select" name="" id="especialidad" required>
+              <option value="">Seleccione...</option>
+              <option value="Médico general">Médico general</option>
+              <option value="Oftalmología">Oftalmología</option>
+              <option value="Pediatría">Pediatría</option>
+              <option value="Ginecología">Ginecología</option>
+              <option value="Odontología">Odontología</option>
+            </select>
+          </div>          
+        </div>
+               
+        <br/>       
+             
+        <div class="divBotonera">
+          <div>
+            <input type="submit" value="Registrar" class="btn btnNuevo">
+            <input type="button" value="Actualizar" class="btn btnActualizar" onclick="actualizar()">
+            <input type="button" value="Eliminar/Cancelar cita" class="btn btnEliminar" onclick="eliminar()">
+            <input type="button" value="Limpiar" class="btn btnLimpiar" onclick="limpiar()">
+        </div>
+        </div>
+      
+    </form>
+  </div> <!-- Fin divForm -->
+
+  </div> <!-- Fin DIV container-->
+  <br/>
+  
+  <!-- TABLE -->
+  <div id="tabla" style="margin-left: 20px; margin-right: 20px;">
+    <table id="tablaRegistros" class="table table-hover">
+      <thead>
+        <tr>
+          <th>Tipo de identificación</th>
+          <th>Número</th>
+          <th>Paciente</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Especialidad</th>
+          <th>Operación</th>          
+        </tr>
+      </thead>
+      <tbody id="tbody">
+
+      </tbody>
+    </table>
+  </div>
+  <br/>
+  <footer>Jader Andres Gaviria Betancur - Desarrador Staff - Semillo</footer>
+
+<!-- <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready(function () {
+      $('#tablaRegistros').DataTable({
+        "language":{
+          "url":"https://cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json"
+        }
+      });
+  });
+    
+// $(document).ready(function () {
+//   var table = $('#tablaRegistros').DataTable();
+
+//   $('#tbody').on('click', 'tr', function () {
+//       var data = table.row(this).data();
+//       alert('You clicked on ' + data[0] + "'s row");
+//   });
+// });
+</script> -->
+
+  <script src="afiliados.js"></script>
+</body>
+
+</html>

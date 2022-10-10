@@ -1,0 +1,122 @@
+h1 {
+    text-align: center;
+}
+
+thead {
+    font-size: 15px;
+}
+
+tbody {
+    text-align: left;
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+footer {
+    background-color: blue;
+    color: white;
+    text-align: center;
+}
+
+#menu{
+    background-color: blue;
+    color: white;
+
+}
+
+.nav-link {
+    color: white;
+}
+.nav-link:hover {
+    color: white;
+}
+
+/* #tablaRegistros {
+    text-align: left;
+} */
+
+/* #principal {
+    margin: 20%;
+} */
+
+/* BOTONES */
+
+.btnNuevo{
+    background-color: blue;
+    color: white; 
+}
+
+.btnActualizar{
+    background-color: blue; 
+    color: white; 
+}
+
+.btnEliminar{
+    background-color: brown;
+    color: white;
+}
+
+.btnMostrar{
+    background-color: blue;
+    color: white;
+    /* font-size:14px;
+    height: 40px; */
+    vertical-align: middle;
+}
+
+.btnLimpiar{
+    background-color: blue;
+    color: white; 
+}
+
+/* DIVs */
+
+#divFormulario {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100%;
+    /* background-color: blue; */
+
+}
+
+#divUsuarios {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100%;
+    /* background-color: blue; */
+
+}
+
+.divBotonera {
+    display: flex;
+    justify-content: center;
+}
+/*
+.divListadoRegistros {
+
+} */
+
+#formulario {    
+    background-color: white;    
+    width: 70%;
+
+}
+
+#formularioCitas {        
+    /* background-color: blue; */
+    width: 46%;
+
+}
+
+.row {
+    margin: 4px;
+}
+
+#divBusos {
+    display: flex;
+    gap: 40px;
+}
