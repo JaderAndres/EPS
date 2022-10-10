@@ -46,7 +46,7 @@ function crear(){
         let correoUsuario = document.getElementById("correoUsuario").value;
         let usu =  document.getElementById("usu").value;
         let contrasena = document.getElementById("contrasena").value;
-        alert("Contraseña: " + contrasena);
+        
         if(tipoIdenti.trim() == null || tipoIdenti.trim() == "")
         {
             alert("Ingrese el tipo de identidad para continuar");
